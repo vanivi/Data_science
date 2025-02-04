@@ -1,0 +1,1092 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "b4a54f34",
+   "metadata": {},
+   "source": [
+    "INFO6105 Data Science Engineering and Tools\n",
+    "\n",
+    "Vidhi Patel\n",
+    "NUID: 002762999\n",
+    "HW1"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d0255c93",
+   "metadata": {},
+   "source": [
+    "1. Create Numpy Arrays"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "7a3a665c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "981d2b86",
+   "metadata": {},
+   "source": [
+    "1) Convert a Python list x=[[1,2,3],[4,5,6]] into a Numpy array."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "bc8b819a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[1 2 3]\n",
+      " [4 5 6]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "x = [[1, 2, 3], [4, 5, 6]]\n",
+    "numpy_array = np.array(x)\n",
+    "\n",
+    "print(numpy_array)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bf151347",
+   "metadata": {},
+   "source": [
+    "2) Use one line to create a 3x2 2D array with shape of (3,2), filled with 1-6."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "51cab5ad",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[1 2]\n",
+      " [3 4]\n",
+      " [5 6]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr = np.arange(1, 7).reshape(3, 2)\n",
+    "\n",
+    "print(arr)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "3ff3011a",
+   "metadata": {},
+   "source": [
+    "3) Use one line to create an array of 2, 4, 6, 8, ..., 98, 100; and find the mean value"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "c7e32293",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "51.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "x2 = np.arange(2, 101, 2).mean()\n",
+    "\n",
+    "print(x2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8f3d8166",
+   "metadata": {},
+   "source": [
+    "4) Create an 3x3x3 array filled with arbitrary float numbers; and find the minimum and maximum values.  "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "aa208aba",
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[[0.74846983 0.22716592 0.71431107]\n",
+      "  [0.2601962  0.84170648 0.67751534]\n",
+      "  [0.64907741 0.71574045 0.30668889]]\n",
+      "\n",
+      " [[0.66267188 0.10154896 0.40650865]\n",
+      "  [0.14775721 0.85527853 0.0318566 ]\n",
+      "  [0.44314516 0.21960582 0.3960739 ]]\n",
+      "\n",
+      " [[0.6977423  0.01024219 0.96247748]\n",
+      "  [0.51896381 0.40758205 0.00280685]\n",
+      "  [0.08033791 0.87567219 0.08190419]]]\n",
+      "\n",
+      "Minimum Value: 0.0028068473110985925\n",
+      "Maximum Value: 0.9624774768909544\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr3 = np.random.random((3, 3, 3))\n",
+    "min_val = np.min(arr3)\n",
+    "max_val = np.max(arr3)\n",
+    "\n",
+    "print(arr3)\n",
+    "print(\"\\nMinimum Value:\", min_val)\n",
+    "print(\"Maximum Value:\", max_val)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "90268b5c",
+   "metadata": {},
+   "source": [
+    "5) Create a 3x4 2D array filled with values from 10 to 21 (included). "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "0661b158",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[10 11 12 13]\n",
+      " [14 15 16 17]\n",
+      " [18 19 20 21]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr2d = np.arange(10, 22).reshape(3, 4)\n",
+    "print(arr2d)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bc1fd0d0",
+   "metadata": {},
+   "source": [
+    "6) Create a numpy array of length 10, starting from 5 and has a step of 3 between consecutive numbers.     "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "0e57b93f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[ 5  8 11 14 17 20 23 26 29 32 35]\n"
+     ]
+    }
+   ],
+   "source": [
+    "array = np.arange(5, 5 + 11 * 3, 3)\n",
+    "\n",
+    "print(array)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "77241d9d",
+   "metadata": {},
+   "source": [
+    "7) Create a shape (10,10) array with arbitrary values; and find the memory size of this array.    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "04df7436",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[83 82 82 42 77 50 19 89 58 62]\n",
+      " [28 16 10 22 92 87 58 51 93  2]\n",
+      " [ 9 36 34 87  5 87 84 87 73 50]\n",
+      " [79  4 67 85  7 22 60 83 20 54]\n",
+      " [25 43 57 30 27 60 23 37 22 73]\n",
+      " [38 75 70  7 81 17  5 10 78 97]\n",
+      " [77 93 52 68 61 75 81 99 97  9]\n",
+      " [20 46 58 43 59 38 55 62 64 77]\n",
+      " [59 58 88 70 23 77  7 44 19 71]\n",
+      " [65  1 54 61 91 48 73 82 89 75]]\n",
+      "nbytes: 400 bytes\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr = np.random.randint(1, 100, size=(10, 10))\n",
+    "print(arr)\n",
+    "print(\"nbytes:\", arr.nbytes, \"bytes\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e103c4aa",
+   "metadata": {},
+   "source": [
+    "8) Create a 1-d array of size 10 with arbitrary values but the fifth value should be 5. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "d56c91ba",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[3 8 2 8 5 8 6 5 4 4]\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr = np.random.randint(1, 10, size =10)\n",
+    "arr[4] = 5\n",
+    "\n",
+    "print(arr)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "aedcfb15",
+   "metadata": {},
+   "source": [
+    "9) Create an array with values ranging from 10 to 49 (included); and reverse it then (first element becomes last). "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "0c3d2615",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[49 48 47 46 45 44 43 42 41 40 39 38 37 36 35 34 33 32 31 30 29 28 27 26\n",
+      " 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10]\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr1 = np.arange(10,50)\n",
+    "rev_arr = np.flip(arr1)\n",
+    "\n",
+    "print(rev_arr)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b5e254da",
+   "metadata": {},
+   "source": [
+    "10) Create an array of shape (3, 2) with random values from a uniform distribution over [0, 1] and confirm you can get the same value when you run it next time."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "3501dd91",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Original random array:  [[0.37454012 0.95071431]\n",
+      " [0.73199394 0.59865848]\n",
+      " [0.15601864 0.15599452]]\n",
+      "\n",
+      "Array with same seed:  [[0.37454012 0.95071431]\n",
+      " [0.73199394 0.59865848]\n",
+      " [0.15601864 0.15599452]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "np.random.seed(42)\n",
+    "random_arr = np.random.rand(3,2)\n",
+    "print(\"Original random array: \", random_arr)\n",
+    "np.random.seed(42)\n",
+    "random_arr2 = np.random.rand(3,2)\n",
+    "print(\"\\nArray with same seed: \", random_arr2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "be8c589d",
+   "metadata": {},
+   "source": [
+    "11) Create a 5x5 matrix with row values ranging from 0 to 4"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "96d888a1",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[0 1 2 3 4]\n",
+      " [0 1 2 3 4]\n",
+      " [0 1 2 3 4]\n",
+      " [0 1 2 3 4]\n",
+      " [0 1 2 3 4]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "matrix = np.tile(np.arange(5), (5, 1))\n",
+    "\n",
+    "print(matrix)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "657322ed",
+   "metadata": {},
+   "source": [
+    "12) Add a border (filled with 0's) around an existing array"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "6efb80e4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[0. 0. 0. 0. 0. 0. 0.]\n",
+      " [0. 1. 1. 1. 1. 1. 0.]\n",
+      " [0. 1. 1. 1. 1. 1. 0.]\n",
+      " [0. 1. 1. 1. 1. 1. 0.]\n",
+      " [0. 1. 1. 1. 1. 1. 0.]\n",
+      " [0. 1. 1. 1. 1. 1. 0.]\n",
+      " [0. 0. 0. 0. 0. 0. 0.]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "array = np.zeros((7, 7))\n",
+    "array [1:6, 1:6] = 1\n",
+    "\n",
+    "print(array)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ed94c1e1",
+   "metadata": {},
+   "source": [
+    "13) Create a 5x5 2-d array with values 1,2,3,4,5 on the diagonal"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "b31ba6fd",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[1 0 0 0 0]\n",
+      " [0 2 0 0 0]\n",
+      " [0 0 3 0 0]\n",
+      " [0 0 0 4 0]\n",
+      " [0 0 0 0 5]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "diagonal_array = np.diag([1, 2, 3, 4, 5])\n",
+    "\n",
+    "print(diagonal_array)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "3c9f4f64",
+   "metadata": {},
+   "source": [
+    "Then, make 1,2,3,4 move below the diagonal"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "fece7b9e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[0 0 0 0 0]\n",
+      " [1 0 0 0 0]\n",
+      " [0 2 0 0 0]\n",
+      " [0 0 3 0 0]\n",
+      " [0 0 0 4 0]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "move_array = np.diag([1, 2, 3, 4], k=-1)\n",
+    "\n",
+    "print(move_array)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "509df83b",
+   "metadata": {},
+   "source": [
+    "14) Create a 10x10 2-d array with 1 on the border and 0 inside "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "8c85b7dc",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]\n",
+      " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+      " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+      " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+      " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+      " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+      " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+      " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+      " [1. 0. 0. 0. 0. 0. 0. 0. 0. 1.]\n",
+      " [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "array_2d = np.ones((10, 10))\n",
+    "array_2d[1:-1, 1:-1] = 0\n",
+    "\n",
+    "print(array_2d)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "cb6cef3f",
+   "metadata": {},
+   "source": [
+    "15) Extract the integer part of a random array of positive numbers using 2 different methods, and the result should be an integer array.  "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "3ffc6efd",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Method 1: [0 8 6 7 0]\n"
+     ]
+    }
+   ],
+   "source": [
+    "random_arr = np.random.rand(5) * 10\n",
+    "method_1 = np.floor(random_arr).astype(int)\n",
+    "\n",
+    "print(\"Method 1:\", method_1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "5e8c15ca",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Method 2: [0 8 6 7 0]\n"
+     ]
+    }
+   ],
+   "source": [
+    "method_2 = random_arr.astype(int)\n",
+    "\n",
+    "print(\"Method 2:\", method_2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "38cfbf58",
+   "metadata": {},
+   "source": [
+    "2. Operations on Numpy Arrays"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4c1bcccb",
+   "metadata": {},
+   "source": [
+    "1) Find the index of 5th repetition of number 1 in the given array x."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "918897a6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Index of the 5th repetition of number 1:  8\n"
+     ]
+    }
+   ],
+   "source": [
+    "x = [1, 2, 1, 1, 3, 4, 3, 1, 1, 2, 1, 1, 2]\n",
+    "\n",
+    "index_1 = [i for i, val in enumerate(x) if val == 1]\n",
+    "index_5 = index_1[4]\n",
+    "print(\"Index of the 5th repetition of number 1: \", index_5)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1941290c",
+   "metadata": {},
+   "source": [
+    "2) Use np.arange to get an array [1, 2, 3, ..., 9]. Split x into 3 sub-arrays, the length of each sub-array is 4, 2, and 3."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "1b455009",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Array:  [1 2 3 4 5 6 7 8 9]\n",
+      "Subarrays:  [array([1, 2, 3, 4]), array([5, 6]), array([7, 8, 9])]\n"
+     ]
+    }
+   ],
+   "source": [
+    "x = np.arange(1,10)\n",
+    "subarray = np.split(x, [4,6])\n",
+    "\n",
+    "print(\"Array: \", x)\n",
+    "print(\"Subarrays: \", subarray)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "cf0fcdd5",
+   "metadata": {},
+   "source": [
+    "3) Use np.arange to generate the following 2D array"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "a8cb1779",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[ 0  1  2  3]\n",
+      " [ 4  5  6  7]\n",
+      " [ 8  9 10 11]\n",
+      " [12 13 14 15]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr = np.arange(16).reshape((4,4))\n",
+    "print(arr)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "07d3934a",
+   "metadata": {},
+   "source": [
+    "Use np.split to split the array into left and right halves."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "81594756",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Left half:  [[ 0  1]\n",
+      " [ 4  5]\n",
+      " [ 8  9]\n",
+      " [12 13]]\n",
+      "\n",
+      "Right half:  [[ 2  3]\n",
+      " [ 6  7]\n",
+      " [10 11]\n",
+      " [14 15]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "left_half, right_half = np.hsplit(arr, [2])\n",
+    "print(\"Left half: \", left_half)\n",
+    "print(\"\\nRight half: \", right_half)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2fde587e",
+   "metadata": {},
+   "source": [
+    "4) Given an 2D array:\n",
+    "(1) Slicing to get the sub-array [[10,15], [25,30]] \n",
+    "(2) Getting individual element value \"20\" "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "8f6809bb",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1. Slicing to get sub-array:  [[10 15]\n",
+      " [25 30]]\n",
+      "\n",
+      " 2. Individual element value:  20\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr1 = np.array([[5, 10, 15],\n",
+    "                     [20, 25, 30],\n",
+    "                     [35, 40, 45]])\n",
+    "sub_arr = arr1[0:2, 1:]\n",
+    "element_val = arr1[1,0]\n",
+    "print(\"1. Slicing to get sub-array: \", sub_arr)\n",
+    "print(\"\\n 2. Individual element value: \", element_val)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fd0df3fa",
+   "metadata": {},
+   "source": [
+    "5) Let x be an array and y be an array. Concatenate x and y"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "7200dc06",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Concatenated Array:  [[ 1  2  3  7  8  9]\n",
+      " [ 4  5  6 10 11 12]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "x = np.array([[1, 2, 3],\n",
+    "              [4, 5, 6]])\n",
+    "\n",
+    "y = np.array([[7, 8, 9],\n",
+    "              [10, 11, 12]])\n",
+    "con_arr = np.concatenate((x,y), axis =1)\n",
+    "print(\"Concatenated Array: \", con_arr)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c59fb4f0",
+   "metadata": {},
+   "source": [
+    "6) Compute the min/max (min is divided by max) for each row for a given 2d array, in which integer values range from 1 to 10 [1,10] and shape is (5,3). Here requires a random seed to keep the same value from the random generator."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "edecd6b9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Random 2d Array:  [[7 4 8]\n",
+      " [5 7 3]\n",
+      " [7 8 5]\n",
+      " [4 8 8]\n",
+      " [3 6 5]]\n",
+      "\n",
+      "Min/Max Ratios for each row:  [0.5        0.42857143 0.625      0.5        0.5       ]\n"
+     ]
+    }
+   ],
+   "source": [
+    "np.random.seed(42)\n",
+    "arr1 = np.random.randint(1,10, size=(5,3))\n",
+    "min_max = np.min(arr1, axis=1) / np.max(arr1, axis=1)\n",
+    "print(\"Random 2d Array: \", arr1)\n",
+    "print(\"\\nMin/Max Ratios for each row: \", min_max)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b3f9afc2",
+   "metadata": {},
+   "source": [
+    "7) Normalize a 5x5 random matrix"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "ab3c6622",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Random matrix:  [[0.96990985 0.83244264 0.21233911 0.18182497 0.18340451]\n",
+      " [0.30424224 0.52475643 0.43194502 0.29122914 0.61185289]\n",
+      " [0.13949386 0.29214465 0.36636184 0.45606998 0.78517596]\n",
+      " [0.19967378 0.51423444 0.59241457 0.04645041 0.60754485]\n",
+      " [0.17052412 0.06505159 0.94888554 0.96563203 0.80839735]]\n",
+      "\n",
+      "Normalized matrix:  [[ 1.76878353  1.29186016 -0.85950282 -0.9653674  -0.95988739]\n",
+      " [-0.54065768  0.22438564 -0.09761066 -0.58580483  0.52655471]\n",
+      " [-1.11222928 -0.5826286  -0.32514236 -0.01391244  1.12787499]\n",
+      " [-0.90344341  0.18788105  0.45911614 -1.43503059  0.51160855]\n",
+      " [-1.0045741  -1.37049638  1.6958426   1.75394224  1.20843836]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "matrix = np.random.random((5,5))\n",
+    "\n",
+    "mean_val = np.mean(matrix)\n",
+    "std_dev = np.std(matrix)\n",
+    "\n",
+    "normalized_mat = (matrix - mean_val)/ std_dev\n",
+    "\n",
+    "print(\"Random matrix: \", matrix)\n",
+    "print(\"\\nNormalized matrix: \", normalized_mat)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a27a1bac",
+   "metadata": {},
+   "source": [
+    "8) Convert 3 arrays into a 1d array\n",
+    "Generate the 3 arrays by numpy arange()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "86422938",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Array 1: [0 1 2]\n",
+      "Array 2: [3 4 5 6]\n",
+      "Array 3: [7 8 9]\n",
+      "Combined array:  [0 1 2 3 4 5 6 7 8 9]\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr1 = np.arange(3)\n",
+    "arr2 = np.arange(3,7)\n",
+    "arr3 = np.arange(7,10)\n",
+    "print(\"Array 1:\", arr1)\n",
+    "print(\"Array 2:\", arr2)\n",
+    "print(\"Array 3:\", arr3)\n",
+    "array = np.concatenate((arr1, arr2, arr3))\n",
+    "print(\"Combined array: \", array)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "42136564",
+   "metadata": {},
+   "source": [
+    "9) Get all items between 15 and 55 from aa, math expression: [15,55]. The aa is uniformly distributed integers in a 1D array (size=20) with given values (<100). Requires defining a seed."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "id": "75d5e487",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Array:  [51 92 14 71 60 20 82 86 74 74 87 99 23  2 21 52  1 87 29 37]\n",
+      "\n",
+      "Items between 15 and 55:  [51 20 23 21 52 29 37]\n"
+     ]
+    }
+   ],
+   "source": [
+    "np.random.seed(42)\n",
+    "aa = np.random.randint(0,100, size = 20)\n",
+    "items = aa[(aa >=15) & (aa <= 55)]\n",
+    "print(\"Array: \", aa)\n",
+    "print(\"\\nItems between 15 and 55: \", items)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "0cb251cc",
+   "metadata": {},
+   "source": [
+    "10) Get the positions where elements of a and b match. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "12960df4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1 3 5 7]\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = np.array([1, 2, 3, 2, 3, 4, 3, 4, 5, 6])\n",
+    "b = np.array([7, 2, 10, 2, 7, 4, 9, 4, 9, 8])\n",
+    "\n",
+    "match_pos = np.where (np.in1d(a, b))[0]\n",
+    "print(match_pos)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "920f6681",
+   "metadata": {},
+   "source": [
+    "11) Use arange() to create an array from 0 to 20 ( [0,20) ); replace all odd numbers with -1."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "id": "61b83b93",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[ 0 -1  2 -1  4 -1  6 -1  8 -1 10 -1 12 -1 14 -1 16 -1 18 -1]\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr = np.arange(20)\n",
+    "arr[arr % 2 != 0] = -1\n",
+    "print(arr)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9c6f8f73",
+   "metadata": {},
+   "source": [
+    "12) Considering a four dimensions array (3,4,3,4) with the values 0-9 randomly, how to get sum over the last two axis at once? "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "5f35a946",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "4d array:  [[[[1 4 0 9]\n",
+      "   [5 8 0 9]\n",
+      "   [2 6 3 8]]\n",
+      "\n",
+      "  [[2 4 2 6]\n",
+      "   [4 8 6 1]\n",
+      "   [3 8 1 9]]\n",
+      "\n",
+      "  [[8 9 4 1]\n",
+      "   [3 6 7 2]\n",
+      "   [0 3 1 7]]\n",
+      "\n",
+      "  [[3 1 5 5]\n",
+      "   [9 3 5 1]\n",
+      "   [9 1 9 3]]]\n",
+      "\n",
+      "\n",
+      " [[[7 6 8 7]\n",
+      "   [4 1 4 7]\n",
+      "   [9 8 8 0]]\n",
+      "\n",
+      "  [[8 6 8 7]\n",
+      "   [0 7 7 2]\n",
+      "   [0 7 2 2]]\n",
+      "\n",
+      "  [[0 4 9 6]\n",
+      "   [9 8 6 8]\n",
+      "   [7 1 0 6]]\n",
+      "\n",
+      "  [[6 7 4 2]\n",
+      "   [7 5 2 0]\n",
+      "   [2 4 2 0]]]\n",
+      "\n",
+      "\n",
+      " [[[4 9 6 6]\n",
+      "   [8 9 9 2]\n",
+      "   [6 0 3 3]]\n",
+      "\n",
+      "  [[4 6 6 3]\n",
+      "   [6 2 5 1]\n",
+      "   [9 8 4 5]]\n",
+      "\n",
+      "  [[3 9 6 8]\n",
+      "   [6 0 0 8]\n",
+      "   [8 3 8 2]]\n",
+      "\n",
+      "  [[6 5 7 8]\n",
+      "   [4 0 2 9]\n",
+      "   [7 5 7 8]]]]\n",
+      "\n",
+      "Sum over the last two axes:  [[55 54 51 54]\n",
+      " [69 56 64 41]\n",
+      " [65 59 61 68]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr4 = np.random.randint(0,10, size = (3,4,3,4))\n",
+    "sum_axes = np.sum(arr4, axis= (2,3))\n",
+    "print(\"4d array: \", arr4)\n",
+    "print(\"\\nSum over the last two axes: \", sum_axes)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
